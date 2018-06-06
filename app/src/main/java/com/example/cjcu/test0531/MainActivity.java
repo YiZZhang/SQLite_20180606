@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onRestart() {
         super.onRestart();
         list = findViewById(R.id.list);
-        helper = new MyDBHelper(this,"my.db",null,1);
+        helper = MyDBHelper.getInstance(this);
         Cursor c = helper.getReadableDatabase()
                 .query("exp",null,null,null,null,null,null);
         SimpleCursorAdapter simpleCursorAdapter = new SimpleCursorAdapter(this,
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         list = findViewById(R.id.list);
-        helper = new MyDBHelper(this,"my.db",null,1);
+        helper = MyDBHelper.getInstance(this);
         Cursor c = helper.getReadableDatabase()
                 .query("exp",null,null,null,null,null,null);
         SimpleCursorAdapter simpleCursorAdapter = new SimpleCursorAdapter(this,
